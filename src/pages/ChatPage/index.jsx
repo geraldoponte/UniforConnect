@@ -12,11 +12,9 @@ import { app, db } from "../../services/FirebaseConfig";
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
-// COMPONENT
+// COMPONENTS
 import { MenuGrupos } from "../../components/MenuGrupos";
 import { Select } from "../../components/Select";
-
-// COMPONENTS
 import { ButtonGrupo } from "../../components/ButtonGrupo";
 import { Message } from "../../components/Message";
 
@@ -27,7 +25,11 @@ import {
   AreaPai,
   Area,
   BoxMessage,
+  Formulario,
+  BotaoEnviar,
+  AreaBotao,
 } from "./styles";
+import { IoIosSend } from "react-icons/io";
 
 const auth = getAuth(app);
 
@@ -64,17 +66,24 @@ export function ChatPage() {
                   <Message key={index} Text={msg.text} uid={msg.uid} />
                 ))}
             </Area>
-            <BoxMessage placeholder="Mensagem..." />
-            <form onSubmit={sendMessage}>
-              <input
+            <Formulario onSubmit={sendMessage}>
+              <BoxMessage
                 type="text"
+                placeholder="Mensagem..."
                 value={formValue}
                 onChange={(e) => setFormValue(e.target.value)}
               />
-              <button type="submit" disabled={!formValue}>
-                Enviar
-              </button>
-            </form>
+              {/* <input
+                type="text"
+                value={formValue}
+                onChange={(e) => setFormValue(e.target.value)}
+              /> */}
+              <AreaBotao>
+                <BotaoEnviar type="submit" disabled={!formValue}>
+                  <IoIosSend size={22} color="white" />
+                </BotaoEnviar>
+              </AreaBotao>
+            </Formulario>
           </AreaPai>
         </Div>
       </StyledRoutesPageContainer>

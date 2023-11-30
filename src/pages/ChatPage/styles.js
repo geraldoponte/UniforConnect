@@ -60,7 +60,29 @@ export const BoxMessage = styled.input`
   padding: 10px;
   background: #d9d9d9;
   border-radius: 12px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 
   color: #5c5c5c;
+`;
+
+export const Formulario = styled.form`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
+
+export const BotaoEnviar = styled.button`
+  text-decoration: none;
+  background: transparent;
+  border: none;
+`;
+
+export const AreaBotao = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a42c5;
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
 `;

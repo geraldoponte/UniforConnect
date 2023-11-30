@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 // COMPONENTS
 import { ButtonText } from "../ButtonText";
+
+import { AuthContext } from "../../contexts/AuthProvider";
 
 // ESTILIZAÇÃO
 import {
@@ -12,10 +15,18 @@ import {
   AreaTitle,
   TitleMeusGrupos,
   AreaButton,
+  BotaoSair,
 } from "./styles";
 import Logo from "../../assets/images/logoUnifor.png";
 
 export function MenuGrupos() {
+  const { signOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    navigate("/");
+    signOut();
+  };
   return (
     <StyledRoutesPageContainer>
       <AreaLogo>
@@ -33,6 +44,14 @@ export function MenuGrupos() {
         <ButtonText title={"Disciplina 1"} />
         <ButtonText title={"Disciplina 2"} />
       </AreaButton>
+      <BotaoSair>
+        <ButtonText
+          title={"Sair"}
+          backgroundColor={"#d9d9d9"}
+          colorText={"#031e5c"}
+          onClick={() => handleSignOut()}
+        />
+      </BotaoSair>
     </StyledRoutesPageContainer>
   );
 }

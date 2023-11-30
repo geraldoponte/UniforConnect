@@ -54,3 +54,9 @@ export const AreaButton = styled.div`
 
   justify-content: center;
 `;
+
+export const BotaoSair = styled.div`
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 12px;
+`;
